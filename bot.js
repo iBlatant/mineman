@@ -7,7 +7,7 @@ Bot.on('ready', () => {
   console.log('I am ready!');
 });
 
-Bot.login('Mjg2MTUyNjU0MjQ0MjgyMzY4.DRAHbg.UlGBTHbdbVQEsXy2S0P0MQlIYAo');
+client.login(process.env.BOT_TOKEN);
 Bot.on('ready', () => {
   Bot.user.setGame(',commands')
 })
