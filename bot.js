@@ -158,6 +158,10 @@ client.on('message', message => {
   message.reply('i poor pls donate for good shit :  ');
   }
 });
+client.on('message', message => {
+  if (message.content === '!ping') {
+  message.reply(`Your Ping : ${m.createdTimestamp - message.createdTimestamp}ms.`);
+  }
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
