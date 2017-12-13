@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.login('Mjg2MTUyNjU0MjQ0MjgyMzY4.DRAHbg.UlGBTHbdbVQEsXy2S0P0MQlIYAo');
 client.on('ready', () => {
-  client.user.setGame(',commands')
+  client.user.setGame('!commands')
 })
 client.on('ready', () => {
     console.log(`[Start] ${new Date()}`);
@@ -42,14 +42,14 @@ client.on("message", async message => {
   
   // Let's go with a few common example commands! Feel free to delete or change those.
   
-  if(command === "ping") {
+  if(command === "!ping") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the client and the websocket server (one-way, not round-trip)
     const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+    m.edit(`Your Ping : ${m.createdTimestamp - message.createdTimestamp}ms.`);
   }
   
-  if(command === "say") {
+  if(command === "!say") {
     // makes the client say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
@@ -59,7 +59,7 @@ client.on("message", async message => {
     message.channel.send(sayMessage);
   }
   
-  if(command === "kick") {
+  if(command === "!kick") {
     // This command must be limited to mods and admins. In this example we just hardcode the role names.
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
@@ -107,7 +107,7 @@ client.on("message", async message => {
     message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
   }
   
-  if(command === "purge") {
+  if(command === "!purge") {
     // This command removes all messages from all users in the channel, up to 100.
     
     // get the delete count, as an actual number.
@@ -124,18 +124,18 @@ client.on("message", async message => {
   }
 });
 client.on('message', message => {
-  if (message.content === ',youtube') {
-    message.reply('https://youtube.com/JonnygamingTv');
+  if (message.content === '!nope') {
+    message.reply('Miss Me With That Gay Shit');
   }
 });
 client.on('message', message => {
-  if (message.content === ',commands') {
-  message.reply('**This is the commands in this client** \n ``` ,commands \n ,help \n ,invite \n ,website \n ,youtube \n ,minecraft \n ,unturned \n ,,play ```');
+  if (message.content === '!commands') {
+  message.reply('**This is the commands in this bot** \n ``` !commands \n !help \n !invite \n !nigger \n !nope \n !minecraft \n !donate \n ,,play ```');
   }
 });
 client.on('message', message => {
-  if (message.content === '!website') {
-  message.reply('http://godcraft.krash.net');
+  if (message.content === '!nigger') {
+  message.reply('@everyone niggers');
   }
 });
 client.on('message', message => {
@@ -144,18 +144,18 @@ client.on('message', message => {
   }
 });
 client.on('message', message => {
-  if (message.content === ',help') {
-  message.reply('EW GAI');
+  if (message.content === '!help') {
+  message.reply('retarded faggot');
   }
 });
 client.on('message', message => {
-  if (message.content === ',minecraft') {
-  message.reply('Join the best minecraft server Godcraft.krash.net!');
+  if (message.content === '!minecraft') {
+  message.reply('A game full of autistic kids who cheats and  says Mr3MS!');
   }
 });
 client.on('message', message => {
-  if (message.content === ',unturned') {
-  message.reply(' IP: VortRP.swe.net \n Port: 27016 ');
+  if (message.content === '!donate') {
+  message.reply('i poor pls donate for good shit :  ');
   }
 });
 
