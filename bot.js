@@ -2,32 +2,32 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 
-Bot.on('ready', () => {
+client.on('ready', () => {
   console.log('I am ready!');
 });
 
-Bot.login('Mjg2MTUyNjU0MjQ0MjgyMzY4.DRAHbg.UlGBTHbdbVQEsXy2S0P0MQlIYAo');
-Bot.on('ready', () => {
-  Bot.user.setGame(',commands')
+client.login('Mjg2MTUyNjU0MjQ0MjgyMzY4.DRAHbg.UlGBTHbdbVQEsXy2S0P0MQlIYAo');
+client.on('ready', () => {
+  client.user.setGame(',commands')
 })
-Bot.on('ready', () => {
+client.on('ready', () => {
     console.log(`[Start] ${new Date()}`);
 });
-Bot.on("guildCreate", guild => {
-  // This event triggers when the bot joins a guild.
+client.on("guildCreate", guild => {
+  // This event triggers when the client joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
 });
-Bot.on("guildDelete", guild => {
-  // this event triggers when the bot is removed from a guild.
+client.on("guildDelete", guild => {
+  // this event triggers when the client is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
 });
 
-Bot.on("message", async message => {
+client.on("message", async message => {
   // This event will run on every single message received, from any channel or DM.
   
-  // It's good practice to ignore other bots. This also makes your bot ignore itself
-  // and not get into a spam loop (we call that "botception").
-  if(message.author.bot) return;
+  // It's good practice to ignore other clients. This also makes your client ignore itself
+  // and not get into a spam loop (we call that "clientception").
+  if(message.author.client) return;
   
   // Also good practice to ignore any message that does not start with our prefix, 
   // which is set in the configuration file.
@@ -44,18 +44,18 @@ Bot.on("message", async message => {
   
   if(command === "ping") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+    // The second ping is an average latency between the client and the websocket server (one-way, not round-trip)
     const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(Bot.ping)}ms`);
+    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
   
   if(command === "say") {
-    // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
+    // makes the client say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
     // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
     message.delete().catch(O_o=>{}); 
-    // And we get the bot to say the thing: 
+    // And we get the client to say the thing: 
     message.channel.send(sayMessage);
   }
   
@@ -123,37 +123,37 @@ Bot.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
 });
-Bot.on('message', message => {
+client.on('message', message => {
   if (message.content === ',youtube') {
     message.reply('https://youtube.com/JonnygamingTv');
   }
 });
-Bot.on('message', message => {
+client.on('message', message => {
   if (message.content === ',commands') {
-  message.reply('**This is the commands in this bot** \n ``` ,commands \n ,help \n ,invite \n ,website \n ,youtube \n ,minecraft \n ,unturned \n ,,play ```');
+  message.reply('**This is the commands in this client** \n ``` ,commands \n ,help \n ,invite \n ,website \n ,youtube \n ,minecraft \n ,unturned \n ,,play ```');
   }
 });
-Bot.on('message', message => {
+client.on('message', message => {
   if (message.content === '!website') {
   message.reply('http://godcraft.krash.net');
   }
 });
-Bot.on('message', message => {
+client.on('message', message => {
   if (message.content === '!invite') {
-  message.reply('https://discordapp.com/api/oauth2/authorize?response_type=code&client_id=385932694523215872&scope=bot&permissions=0');
+  message.reply('https://discordapp.com/api/oauth2/authorize?response_type=code&client_id=385932694523215872&scope=client&permissions=0');
   }
 });
-Bot.on('message', message => {
+client.on('message', message => {
   if (message.content === ',help') {
   message.reply('EW GAI');
   }
 });
-Bot.on('message', message => {
+client.on('message', message => {
   if (message.content === ',minecraft') {
   message.reply('Join the best minecraft server Godcraft.krash.net!');
   }
 });
-Bot.on('message', message => {
+client.on('message', message => {
   if (message.content === ',unturned') {
   message.reply(' IP: VortRP.swe.net \n Port: 27016 ');
   }
